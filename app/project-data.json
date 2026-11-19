@@ -1,0 +1,39 @@
+{
+  "projects": [
+    {
+      "name": "Atlas platform refresh",
+      "owner": "Nia Patel",
+      "status": "In progress",
+      "recentActivity": "API contract review wrapped up · 2 hours ago",
+      "priority": "High"
+    },
+    {
+      "name": "Community onboarding",
+      "owner": "Theo Kim",
+      "status": "On track",
+      "recentActivity": "The new contributor guide is ready for feedback · 5 hours ago",
+      "priority": "Medium"
+    },
+    {
+      "name": "Release readiness",
+      "owner": "Maya Chen",
+      "status": "At risk",
+      "recentActivity": "Waiting on the final accessibility review · Yesterday",
+      "priority": "High"
+    },
+    {
+      "name": "Documentation refresh",
+      "owner": "Jordan Lee",
+      "status": "Planning",
+      "recentActivity": "Scope confirmed for the upcoming sprint · Yesterday",
+      "priority": "Low"
+    },
+    {
+      "name": "Design system adoption",
+      "owner": "Sam Rivera",
+      "status": "In progress",
+      "recentActivity": "Shared button patterns merged into the starter kit · 2 days ago",
+      "priority": "Medium"
+    }
+  ]
+}
