@@ -12,7 +12,7 @@ Keep the implementation dependency-free: use HTML, CSS, JSON, and a Python HTTP 
 - `app/project-data.json` has a top-level `projects` array. Each project has `name`, `owner`, `status`, `recentActivity`, and `priority` fields.
 - `app/index.html` references `styles.css` and loads `project-data.json`, then renders each project as a `.project-card` inside a `.dashboard` container.
 - Each card presents the project's name, owner, status, recent activity, and priority.
-- The launch configuration is named **Run Project Pulse Dashboard**, serves from `app` with `python3 -m http.server 5500`, and uses `serverReadyAction` to open `http://localhost:%s/index.html`.
+- The launch configuration is named **Run Project Pulse Dashboard**, uses `${workspaceFolder}/app` as its working directory, serves with `python3 -m http.server 5500`, and uses `serverReadyAction` to open `http://localhost:%s/index.html`.
 
 ## Ordered implementation phases
 
@@ -25,7 +25,7 @@ Keep the implementation dependency-free: use HTML, CSS, JSON, and a Python HTTP 
 ### 2. Create independent design and support artifacts
 
 - **Designer — `app/styles.css`:** Implement the polished visual system, responsive layout, `.dashboard` and `.project-card` hooks, status and priority treatments, rounded cards, and shadows. Ensure readable contrast, spacing, and typography at narrow and wide viewport sizes.
-- **Coder — `app/project-data.json` and `.vscode/launch.json`:** Create representative project data conforming to the contract, and a strict-JSON launch configuration with the required name, `cwd` set to `app` (workspace-relative), server command, port, and browser-ready URL.
+- **Coder — `app/project-data.json` and `.vscode/launch.json`:** Create representative project data conforming to the contract, and a strict-JSON launch configuration with the required name, `cwd` set to `${workspaceFolder}/app`, server command, port, and browser-ready URL.
 - **Depends on:** Phase 1. These assignments do not overlap and can proceed in parallel.
 
 ### 3. Implement the page against the agreed contracts
@@ -81,7 +81,7 @@ Keep the implementation dependency-free: use HTML, CSS, JSON, and a Python HTTP 
 - Parse `app/project-data.json` as JSON; confirm the top-level value contains a `projects` array and every entry has all five required fields.
 - Inspect `app/index.html` for the exact `Project Pulse` title, stylesheet and JSON references, semantic heading structure, `.dashboard` container, and generated `.project-card` elements that display all five fields.
 - Inspect `app/styles.css` for `.dashboard` and `.project-card`, polished card treatment including `border-radius` and `box-shadow`, accessible contrast and focus behavior where applicable, and responsive layout rules.
-- Parse `.vscode/launch.json` as strict JSON; confirm the launch name, `cwd` of `app`, `python3 -m http.server 5500`, and `serverReadyAction` URL `http://localhost:%s/index.html`.
+- Parse `.vscode/launch.json` as strict JSON; confirm the launch name, `cwd` of `${workspaceFolder}/app`, `python3 -m http.server 5500`, and `serverReadyAction` URL `http://localhost:%s/index.html`.
 - Run the configured preview and confirm the browser opens `index.html` (not a directory listing), the cards render from JSON, and layout remains usable at narrow and wide widths.
 
 ## Open questions
